@@ -11,14 +11,11 @@ struct Edge {
    void add_capacity(int capacity, int capacity_rev = 0) {
       c += capacity;
       spare += capacity;
-      if (capacity_rev != 0)
-         rev->add_capacity(capacity_rev, 0);
+      if (capacity_rev != 0) rev->add_capacity(capacity_rev, 0);
    }
    void add_flow(int v) {
-      f += v;
-      rev->f -= v;
-      spare -= v;
-      rev->spare += v;
+      f += v, rev->f -= v;
+      spare -= v, rev->spare += v;
    }
 };
 typedef vector<Edge *> ve;
@@ -32,10 +29,8 @@ public:
       edges.resize(n);
    }
    void add_edge(int i, int j, int c, int c_rev = 0) {
-      Edge *e = new Edge(i, j, c);
-      Edge *e_rev = new Edge(j, i, c_rev, e);
-      edges[i].pb(e);
-      edges[j].pb(e_rev);
+      Edge *e = new Edge(i, j, c), *e_rev = new Edge(j, i, c_rev, e);
+      edges[i].pb(e), edges[j].pb(e_rev);
    }
    int flow() {
       int ret = 0;
@@ -55,13 +50,10 @@ public:
                }
             }
          }
-         if (from[sink] == -1)
-            break;
+         if (from[sink] == -1) break;
          int min_flow = INF;
-         for (int i = sink; i != source; i = from[i])
-            min_flow = min(min_flow, path[i]->spare);
-         for (int i = sink; i != source; i = from[i])
-            path[i]->add_flow(min_flow);
+         for (int i = sink; i != source; i = from[i]) min_flow = min(min_flow, path[i]->spare);
+         for (int i = sink; i != source; i = from[i]) path[i]->add_flow(min_flow);
          ret += min_flow;
       }
       return ret;

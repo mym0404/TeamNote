@@ -43,9 +43,8 @@ struct _miller {
    }
    inline ll mul(ll x, ll y, ll mod) { return (__int128_t) x * y % mod; }
 } miller;
-
 struct _pollard : public _miller, _random {
-   void fn(ll n, vl &ret) {
+   void fn(ll n, vector<ll> &ret) {
       if (n == 1) return;
       if (!(n & 1)) {
          ret.pb(2);
@@ -63,7 +62,7 @@ struct _pollard : public _miller, _random {
       fn(g, ret), fn(n / g, ret);
    }
    vector<pair<ll, int>> factorize(ll n) {
-      vl v;
+      vector<ll> v;
       vector<pair<ll, int>> ret;
       fn(n, v);
       sort(all(v));

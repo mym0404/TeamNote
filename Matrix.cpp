@@ -1,42 +1,61 @@
-typedef vvl matrix;
-ostream &operator<<(ostream &os, const matrix &mat) {
-   for (auto vec: mat) {
-      for (auto i: vec) {
-         cout << i << " ";
-      }
+typedef vi row;
+typedef vector<row> mat;
+ostream &operator<<(ostream &os, const mat &mat) {
+   for (const auto &vec: mat) {
+      for (const auto &i: vec) cout << i << " ";
       cout << endl;
    }
+   cout << endl;
    return os;
 }
-matrix operator*(const matrix &a, const matrix &b) {
-   int aRow = a.size();
-   int aColumn = a[0].size();
-   int bRow = b.size();
-   int bColumn = b[0].size();
+mat operator*(const mat &a, const mat &b) {
+   int aRow = a.size(), aColumn = a[0].size();
+   int bRow = b.size(), bColumn = b[0].size();
 
    if (aColumn != bRow)
       throw std::length_error("column of a is not equal to row of b");
 
-   matrix c(aRow, vl(bColumn, 0));
+   mat c(aRow, row(bColumn, 0));
 
-   for (int i = 0; i < aRow; ++i) {
-      for (int j = 0; j < bColumn; ++j) {
-         for (int k = 0; k < aColumn; k++) {
-            c[i][j] += a[i][k] * b[k][j];
-//            c[i][j] %= mod;
-         }
-      }
-   }
+   for (int i = 0; i < aRow; ++i)
+      for (int j = 0; j < bColumn; ++j)
+         for (int k = 0; k < aColumn; k++)
+            c[i][j] = md(c[i][j] + a[i][k] * b[k][j]);
 
    return c;
 }
-matrix identity(ll n) {
-   matrix ret(n, vl(n));
+mat operator*(const mat &a, int b) {
+   mat c = a;
+   for (int i = 0; i < sz(a); ++i)
+      for (int j = 0; j < sz(a[0]); ++j)
+         c[i][j] = md(c[i][j] * b);
+   return c;
+}
+mat operator+(const mat &a, const mat &b) {
+   int aRow = a.size(), aColumn = a[0].size();
+   int bRow = b.size(), bColumn = b[0].size();
+   if (aRow != bRow || aColumn != bColumn)
+      throw std::length_error("Length Error");
+   mat c(aRow, row(bColumn, 0));
+   for (int i = 0; i < aRow; ++i)
+      for (int j = 0; j < bColumn; ++j)
+         c[i][j] = md(c[i][j] + a[i][j] + b[i][j]);
+   return c;
+}
+mat operator+(const mat &a, int b) {
+   mat c = a;
+   for (int i = 0; i < sz(a); ++i)
+      for (int j = 0; j < sz(a[0]); ++j)
+         c[i][j] = md(c[i][j] + b);
+   return c;
+}
+mat identity(int n) {
+   mat ret(n, row(n));
    for (int i = 0; i < n; i++) ret[i][i] = 1;
    return ret;
 }
-matrix pow_mat(matrix a, ll n) {
-   matrix ret = identity(sz(a));
+mat pow_mat(mat a, ll n) {
+   mat ret = identity(sz(a));
    while (n) {
       if (n & 1) ret = ret * a;
       a = a * a;
@@ -44,4 +63,3 @@ matrix pow_mat(matrix a, ll n) {
    }
    return ret;
 }
-

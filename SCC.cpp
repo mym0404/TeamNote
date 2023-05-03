@@ -1,8 +1,8 @@
 class SCC {
 public:
    vvi edges, scc, scc_edges;
-   vi sn, dfsn, fin, entry;
-   int N, next_dfsn = 0, next_sccn = 0;
+   vi sn, dfsn, fin, entry, in, out;
+   int N, next_dfsn = 0, size = 0;
    SCC(int N) : N(N) {
       edges.resize(N);
       sn.resize(N);
@@ -16,13 +16,18 @@ public:
             dfs(i);
    }
    void find_scc_edges() {
-      scc_edges.resize(next_sccn);
-      entry.resize(next_sccn);
+      scc_edges.resize(size);
+      entry.resize(size);
+      in.resize(size);
+      out.resize(size);
       for (int i = 0; i < N; i++)
          for (int j: edges[i])
             if (sn[i] != sn[j]) {
                scc_edges[sn[i]].pb(sn[j]);
                entry[sn[j]]++;
+
+               out[sn[i]]++;
+               in[sn[j]]++;
             }
    }
    void add_or(int x, int y) {
@@ -39,9 +44,9 @@ public:
       add_or(z ^ 1, x ^ 1);
    }
    vi two_sat() {
-      for (int i = 0; i < N; i++) if (sn[i] == sn[i ^ 1]) return {-1};
+      for (int i = 0; i < N; i++) if (sn[i] == sn[i ^ 1]) return {};
       vi ans(N >> 1, -1);
-      for (int i = next_sccn - 1; i >= 0; i--)
+      for (int i = size - 1; i >= 0; i--)
          for (int n: scc[i])
             if (ans[n >> 1] == -1)
                ans[n >> 1] = !(n & 1);
@@ -65,11 +70,11 @@ private:
             int popped = s.top();
             s.pop();
             fin[popped] = true;
-            sn[popped] = next_sccn;
+            sn[popped] = size;
             tmp.pb(popped);
             if (popped == cur) break;
          }
-         next_sccn++;
+         size++;
          scc.pb(tmp);
       }
       return low;

@@ -29,7 +29,7 @@ struct seg_tree_merge {
    }
    void update(int i, T v) { update(1, 0, N - 1, i, v); };
    node query(int n, int nl, int nr, int l, int r) {
-      if (nl > r || nr < l) return {-INF, -INF, -INF, -INF};
+      if (nl > r || nr < l) return {0, -INF, -INF, -INF};
       if (nl >= l && nr <= r) return tree[n];
       int m = (nl + nr) >> 1;
       return merge(query(n * 2, nl, m, l, r), query(n * 2 + 1, m + 1, nr, l, r));

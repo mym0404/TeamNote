@@ -37,7 +37,7 @@ public:
       edges[i].pb(e);
       edges[j].pb(e_rev);
    }
-   pl flow() {
+   pi flow() {
       int max_flow = 0;
       ll cost_sum = 0;
       while (1) {

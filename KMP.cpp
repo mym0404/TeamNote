@@ -1,20 +1,18 @@
-vi kmp(const string &s, const string &f) {
-   vi fallback(sz(f)), ret;
-   int j = 0;
-   for (int i = 1; i < sz(f); i++) {
-      while (j > 0 && f[j] != f[i]) j = fallback[j - 1];
-      if (f[i] == f[j]) fallback[i] = ++j;
+vi kmp_fail(const string &s) {
+   vi fail(sz(s));
+   for (int i = 1, j = 0; i < sz(s); i++) {
+      while (j > 0 && s[j] != s[i]) j = fail[j - 1];
+      if (s[i] == s[j]) fail[i] = ++j;
    }
-   j = 0;
-   for (int i = 0; i < sz(s); i++) {
-      while (j > 0 && f[j] != s[i]) j = fallback[j - 1];
+   return fail;
+}
+vi kmp(const string &s, const string &f) {
+   vi fail = kmp_fail(f), ret;
+   for (int i = 0, j = 0; i < sz(s); i++) {
+      while (j > 0 && f[j] != s[i]) j = fail[j - 1];
       if (s[i] == f[j]) {
-         if (j == sz(f) - 1) {
-            ret.pb(i - sz(f) + 1);
-            j = fallback[j];
-         } else {
-            j++;
-         }
+         if (j == sz(f) - 1) ret.pb(i - sz(f) + 1), j = fail[j];
+         else ++j;
       }
    }
    return ret;

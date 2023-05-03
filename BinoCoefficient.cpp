@@ -1,5 +1,5 @@
 const int MAX = 1'000'000;
-const ll mod = 998244353;
+const ll mod = 1e9 + 7;
 vl fac(MAX + 1, 1LL), inv(MAX + 1);
 array<ll, 3> gcdx(ll A, ll B) {
    ll x1 = 1, x2 = 0, y1 = 0, y2 = 1, r1 = A, r2 = B;

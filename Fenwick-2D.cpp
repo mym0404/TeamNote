@@ -1,14 +1,14 @@
-class FenwickTree2DSum {
+class fenwick_2d {
 public:
-   int n;
+   int Y, X;
    vvi tree;
-   FenwickTree2DSum(int n) : n(n) {
-      tree.resize(n, vi(n));
+   fenwick_2d(int Y, int X) : Y(Y), X(X) {
+      tree.resize(Y, vi(X));
    }
    void update(int y, int x, int diff) {
-      while (y <= n) {
+      while (y <= Y) {
          int _x = x;
-         while (_x <= n) {
+         while (_x <= X) {
             tree[y][_x] += diff;
             _x += _x & -_x;
          }

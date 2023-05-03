@@ -58,7 +58,7 @@ struct dinic {
          return level[sink] != -1;
       };
 
-      function<int(int, int)> dfs = [&](int cur, int flow) {
+      function<int(int, int)> dfs = [&](int cur, int flow) -> int {
          if (cur == sink)
             return flow;
          for (int &i = work[cur]; i < sz(edges[cur]); i++) {
