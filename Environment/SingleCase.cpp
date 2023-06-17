@@ -18,6 +18,8 @@ typedef vector<string> vs;
 #define fv2(X) for(auto&__:(X))fv(__)
 #define lbi(X, n) int(lower_bound(all(X), n) - begin(X))
 #define ubi(X, n) int(upper_bound(all(X), n) - begin(X))
+#define maxa(X, Y) (X)=max((X),(Y))
+#define mina(X, Y) (X)=min((X),(Y))
 #define maxi(X) max_element(all(X)) - begin(X)
 #define maxe(X) *max_element(all(X))
 #define mini(X) min_element(all(X)) - begin(X)
@@ -35,14 +37,14 @@ inline ll md(ll m, ll x) { return (x %= m) < 0 ? x + m : x; }
 #else
 #define debug(...) 1
 #endif
-// endregion$1$
+// endregion
 
 void solve() {
-	$END$
+   
 }
 
 signed main() {
-    fastio
-    solve();
-    return 0;
+   fastio
+   solve();
+   return 0;
 }
