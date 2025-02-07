@@ -31,7 +31,11 @@ typedef vector<string> vs;
 #define hass(X, x) ((X).find(x) != (X).end())
 #define hasstr(X, x) (!!strstr(&(X)[0],&(x)[0]))
 #define uniq(X) sort(all(X)),(X).resize(unique(all((X))) - (X).begin())
-inline ll md(ll m, ll x) { return (x %= m) < 0 ? x + m : x; }
+inline ll md(ll m, ll x) {
+   return x >= 0 && x < m ? x : (x %= m) < 0 ? x + m : x;
+}
+auto vec(const int n, auto &&val) { return vector(n, val); }
+auto vec(const int n, auto &&... args) { return vector(n, vec(args...)); }
 #ifdef LOCAL
 #include "debug.h"
 #else
@@ -40,7 +44,7 @@ inline ll md(ll m, ll x) { return (x %= m) < 0 ? x + m : x; }
 // endregion
 
 void solve() {
-   
+
 }
 
 signed main() {
