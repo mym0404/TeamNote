@@ -18,6 +18,8 @@ typedef vector<string> vs;
 #define fv2(X) for(auto&__:(X))fv(__)
 #define lbi(X, n) int(lower_bound(all(X), n) - begin(X))
 #define ubi(X, n) int(upper_bound(all(X), n) - begin(X))
+#define maxa(X, Y) (X)=max((X),(Y))
+#define mina(X, Y) (X)=min((X),(Y))
 #define maxi(X) max_element(all(X)) - begin(X)
 #define maxe(X) *max_element(all(X))
 #define mini(X) min_element(all(X)) - begin(X)
@@ -29,25 +31,29 @@ typedef vector<string> vs;
 #define hass(X, x) ((X).find(x) != (X).end())
 #define hasstr(X, x) (!!strstr(&(X)[0],&(x)[0]))
 #define uniq(X) sort(all(X)),(X).resize(unique(all((X))) - (X).begin())
-inline ll md(ll m, ll x) { return (x %= m) < 0 ? x + m : x; }
+inline ll md(ll m, ll x) {
+   return x >= 0 && x < m ? x : (x %= m) < 0 ? x + m : x;
+}
+auto vec(const int n, auto &&val) { return vector(n, val); }
+auto vec(const int n, auto &&... args) { return vector(n, vec(args...)); }
 #ifdef LOCAL
 #include "debug.h"
 #else
 #define debug(...) 1
 #endif
-// endregion$1$
+// endregion
 
 void solve() {
-    $END$
+   
 }
 
 signed main() {
-    fastio
-    int tt;
-    cin >> tt;
-    for (int t = 1; t <= tt; t++) {
-        //cout << "Case #" << t << ": ";
-        solve();
-    }
-    return 0;
+   fastio
+   int tt;
+   cin >> tt;
+   for (int t = 1; t <= tt; t++) {
+      //cout << "Case #" << t << ": ";
+      solve();
+   }
+   return 0;
 }
