@@ -1,0 +1,242 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/mj/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="lambda-gitster"
+
+MJ_MACHINE="1"
+
+alias cat='bat'
+export PAGER='bat --color=always'
+export MANPAGER='bat --color=always'
+alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+
+# Download Znap, if it's not there yet.
+[[ -r ~/Repos/znap/znap.zsh ]] ||
+    git clone --depth 1 -- \
+        https://github.com/marlonrichert/zsh-snap.git ~/Repos/znap
+source ~/Repos/znap/znap.zsh  # Start Znap
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+export SIMULATOR_NAME="iPhone 15"
+
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+
+plugins=(
+    git
+    zsh-autosuggestions
+    git-auto-fetch
+)
+alias g=git
+
+source $ZSH/oh-my-zsh.sh
+
+eval "$(fzf --zsh)"
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+alias vim=code
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+#source /Users/mj/Desktop/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#Ruby
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.fastlane/bin:$PATH"
+eval "$(rbenv init -)"
+
+#Path
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH="$PATH:$HOME/Documents/flutter/bin"
+export PATH="$PATH:$HOME/Documents/flutter/.pub-cache/bin"
+export PATH="$HOME/.pub-cache/bin:$PATH"
+export PATH="usr/local/bin:$PATH"
+export PATH="$HOME/documents/flutter/bin:$PATH"
+export PATH="$PATH:~/.yarn/bin"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$PATH:/usr/local/go/bin"
+
+export CC=/usr/bin/gcc
+export CXX=/usr/bin/g++
+
+export FLUTTER_ROOT=$HOME/Documents/flutter
+
+#SHORT CUT
+alias D='cd ~/Desktop'
+alias DOWN='cd ~/Downloads'
+alias APP='cd /Applications'
+alias P='code ~/.zshrc'
+alias S='source ~/.zshrc'
+alias IP='ifconfig | grep "inet "'
+
+#FAVORITE
+alias MJ='cd /Users/mj/Desktop/MJStudio-Web/MJStudio-React'
+alias CPW='cd ~/Desktop/coding-poem'
+alias TURING='cd ~/Desktop/Turing'
+alias TURINGKEY='cd "/Users/mj/Library/Mobile Documents/com~apple~CloudDocs/TuringKeys"'
+alias RUNNER='cd "/Users/mj/Desktop/actions-runner"'
+alias SSHRUNNER='ssh ace@teamturing-dev.tplinkdns.com -p1234'
+
+alias algo='bash _scripts/algorithm.sh'
+alias boj='bash _scripts/boj.sh'
+alias aoj='bash _scripts/aoj.sh'
+alias tip='bash _scripts/tip.sh'
+alias num='bash _scripts/num.sh'
+alias psmath='bash _scripts/psmath.sh'
+alias at='node _scripts/atcoder.js'
+alias cf='node _scripts/codeforces.js'
+alias draft='node _scripts/draft_date_update.js'
+alias JK='bundle exec jekyll serve --limit_posts 1 --livereload --incremental'
+alias JKALL='bundle exec jekyll serve --livereload'
+alias ALGO='cd /Users/mj/Desktop/Algorithm'
+alias TIME='cd /Users/mj/Desktop/timing'
+alias TODO='cd /Users/mj/Desktop/todo'
+alias JA='cd "/Users/mj/Desktop/jagyeok"'
+alias JAWEB='cd "/Users/mj/Desktop/jagyeok-web-typing"'
+alias WA='dart run build_runner watch'
+alias BR='dart run build_runner build'
+alias L='flutter pub global run intl_utils:generate'
+alias LL='dart run tool/intl_sync.dart && L'
+alias CO='cd /Users/mj/Desktop/CodingPoem'
+alias TT='cd /Users/mj/Desktop/TodoTimes'
+alias SAY='cowsay -f dragon'
+alias SF='swiftformat .'
+alias TTT='TT && SF && git add . && git commit -m "chore: unconscious commit" --allow-empty'
+alias TTF='TT && SF'
+alias KAKAO='cd /Users/mj/Desktop/react-native-kakao'
+#GITHUB
+alias GIT='vim ~/.gitconfig'
+DEFAULT_CM_MSG='chore: unconscious commit'
+alias CC='g ada && g s && g commit --allow-empty -m $DEFAULT_CM_MSG'
+alias PUSH='CC && g ps'
+alias RUNNER='/Users/mj/Desktop/actions-runner/run.sh'
+alias RUNNERMATH='cd /Users/mj/Desktop/actions-runner/runner/MathKingMobile/MathKingMobile'
+alias GHTOKEN='...'
+alias GH="git config --get remote.origin.url | sed 's/git@github.com:/https:\/\/github.com\//' | sed 's/.git$//' | xargs open"
+alias PR="gh pr view -w"
+alias COMFY='D && ComfyUI && conda activate comfy && python main.py'
+alias SD='D && cd sd-blog'
+alias 3S='D && cd threespots'
+alias 3SW='D && cd threespots-web'
+
+# export PYTORCH_ENABLE_MPS_FALLBACK=1
+
+#XCODE
+alias XCODE='cd ~/Library/Developer/Xcode'
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+figlet -f "Sub-Zero" "MJ" | lolcat
+
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+# bindkey '^I' autosuggest-accept
+if [[ "$(pwd)" = "$HOME" ]]; then
+cd ~/Desktop
+fi
+
+
+# export PATH="$PATH:/User/mj/miniconda3/bin"
+# __conda_setup="$('/Users/mj/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/mj/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/mj/miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/mj/miniconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
