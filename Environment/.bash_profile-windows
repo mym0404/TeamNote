@@ -1,0 +1,39 @@
+if [ -f ~/.bashrc ]; then
+    source ~/.bashrc
+fi
+
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+export PATH="/c/Users/mj/My Documents:$PATH"
+export PATH="%USERPROFILE%/AppData/Local/Microsoft/WindowsApps:$PATH"
+export PATH="/c/Users/mj/AppData/Local/Programs/Hyper/resources/bins:$PATH"
+export PATH="/c/Users/mj/AppData/Local/Programs/Microsoft VS Code/bin:$PATH"
+
+export PATH="/c/Users/mj/AppData/Local/JetBrains/Toolbox/scripts:$PATH"
+
+export PATH="/c/Users/mj/.nvm/versions/node/v20.14.0/bin:$PATH"
+export PATH="/c/Users/mj/.nvm/versions/node/v20.14.0/bin/npm:$PATH"
+export PATH=$PATH:"/c/ProgramData/chocolatey/bin"
+
+alias ws='webstorm.cmd'
+
+alias P='code ~/.bash_profile'
+alias S='source ~/.bash_profile'
+alias D='cd ~/Desktop'
+alias CC='cd /c'
+alias DD='cd /d'
+alias PY='CFF && ./python_embeded/python.exe'
+alias open='start'
+alias vim='code'
+alias g='git'
+
+alias GIT='vim ~/.gitconfig'
+DEFAULT_CM_MSG='chore: unconscious commit'
+alias CC='git add -a && git status && git commit --allow-empty -m $DEFAULT_CM_MSG'
+alias PUSH='CC && git push origin $(git rev-parse --abbrev-ref HEAD)'
+
+# Set up fzf key bindings and fuzzy completion
+export FZF_DEFAULT_OPTS="--height=10%"
+eval "$(fzf --bash)"
+
