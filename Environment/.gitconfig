@@ -1,0 +1,107 @@
+[core]
+	excludesfile = ~/.gitignore_global
+  autocrlf = input
+	compression = 0
+	filemode = false
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  side-by-side=false
+  navigate = true
+  line-numbers = true
+  theme = Github
+  file-decoration-style = 'box "#ffdf87"' 
+  file-style = 'bold "#ffdf87"'
+  commit-decoration-style = 'yellow box bold'
+  commit-style = 'raw'
+  dark = true
+  paging=auto
+  pager=less
+  hunk-label = 🧊
+  hunk-header-style = '"#6f8efc"'
+  hunk-header-decoration-style = '"#6f8efc"'
+  file-added-label = 🧩  Added:
+  file-copied-label = 📦  Copied:
+  file-modified-label = 🖌️  Modifed:
+  file-removed-label = 🎃  Remove:
+  file-renamed-label = 🖌️  Renamed:
+
+[merge]
+  conflictstyle = diff3
+
+
+[diff]
+  colorMoved = default
+
+
+[user]
+	name = Mystic
+	email = mym0404@gmail.com
+	signingKey = 
+[pack]
+	windowMemory = 100m
+	packSizeLimit = 100m
+	threads = 1
+[fetch]
+	prune = true
+[pull]
+	prune = true
+	ff = true
+	rebase = false
+[url "https://github.com/"]
+	insteadOf = @git.github.com:
+[init]
+	defaultBranch = main
+[gpg]
+	program = gpg
+	format = openpgp
+[commit]
+	gpgSign = false
+[tag]
+	forceSignAnnotated = false
+[maintenance]
+	repo = /Users/mj/Documents/flutter
+	repo = /Users/mj/Documents/znap
+	repo = /Users/mj/Repos/znap
+	repo = /Users/mj/Repos/marlonrichert/zsh-autocomplete
+[safe]
+	directory = /Users/mj/Desktop/RNSAMPLE/hello
+[push]
+	autoSetupRemote = true
+[advice]
+	addIgnoredFile = false
+[alias]
+	c = checkout
+  w = switch
+	b = branch
+	cm = commit -m 
+	s = status
+  pl = !git pull origin $(git rev-parse --abbrev-ref HEAD)
+  ps = !git push origin $(git rev-parse --abbrev-ref HEAD)
+	pop = stash pop
+	ada = add -A
+  ad = add
+  sh = show
+  shh = show --name-status
+  df = diff
+  dff = diff HEAD
+  lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(magenta)- %an%C(reset)%C(auto)%d%C(reset)' --all  --date-order
+  lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%ai%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(magenta)- %an%C(reset)' --all  --date-order
+  lg = lg1
+  reflg1 = reflog --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%ai%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(bold blue)%gs%C(reset) %C(white)%s%C(reset) %C(magenta)- %an%C(reset)' --all --date-order
+  reflg = reflg1
+  f = fetch --all
+  rs = reset
+  rst = restore
+  amd = commit --amend
+  cp = cherry-pick
+  # recz = "!sh -c 'git commit -m \"$(cat .git/COMMIT_EDITMSG)\" ' "
+  ccc = "!bash -c 'git reset && git restore -SW . && git clean -df ' "
+[color]
+	ui = auto
+[gpg "ssh"]
+	program = ssh-keygen
+	allowedSignersFile = 
