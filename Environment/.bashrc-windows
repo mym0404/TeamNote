@@ -21,7 +21,7 @@ alias CC='cd /c'
 alias DD='cd /d'
 alias PY='CFF && ./python_embeded/python.exe'
 alias open='start'
-alias vim='code'
+# alias vim='code'
 alias g='git'
 
 alias GIT='vim ~/.gitconfig'
