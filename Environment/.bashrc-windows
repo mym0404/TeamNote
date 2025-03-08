@@ -24,10 +24,13 @@ alias open='start'
 # alias vim='code'
 alias g='git'
 
+
 alias GIT='vim ~/.gitconfig'
 DEFAULT_CM_MSG='chore: unconscious commit'
 alias CC='git add -a && git status && git commit --allow-empty -m $DEFAULT_CM_MSG'
 alias PUSH='CC && git push origin $(git rev-parse --abbrev-ref HEAD)'
+alias GH="git config --get remote.origin.url | sed 's/git@github.com:/https:\/\/github.com\//' | sed 's/.git$//' | xargs open"
+alias PR="gh pr view -w"
 
 # Set up fzf key bindings and fuzzy completion
 export FZF_DEFAULT_OPTS="--height=10%"
