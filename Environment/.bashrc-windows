@@ -14,7 +14,7 @@ export PATH=$PATH:"/c/ProgramData/chocolatey/bin"
 
 alias ws='webstorm.cmd'
 
-alias P='code ~/.bashrc'
+alias P='vim ~/.bashrc'
 alias S='source ~/.bashrc'
 alias D='cd ~/Desktop'
 alias CC='cd /c'
