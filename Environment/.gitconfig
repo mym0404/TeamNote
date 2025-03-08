@@ -1,9 +1,30 @@
 [core]
-	excludesfile = ~/.gitignore_global
-  autocrlf = input
-	compression = 0
-	filemode = false
-  pager = delta
+excludesfile = ~/.gitignore_global
+autocrlf = input
+compression = 0
+filemode = false
+pager = delta
+
+[column]
+ui = auto
+
+[branch]
+sort = -committerdate
+
+[tag]
+sort = version:refname
+
+[init]
+defaultBranch = main
+
+[diff]
+algorithm = histogram
+colorMoved = plain
+mnemonicPrefix = true
+renames = true
+
+[help]
+autocorrect = prompt
 
 [interactive]
   diffFilter = delta --color-only
@@ -47,6 +68,12 @@
 	threads = 1
 [fetch]
 	prune = true
+pruneTags = true
+all = true
+[push]
+default = simple
+autoSetupRemote = true
+followTags = true
 [pull]
 	prune = true
 	ff = true
@@ -101,7 +128,20 @@
   # recz = "!sh -c 'git commit -m \"$(cat .git/COMMIT_EDITMSG)\" ' "
   ccc = "!bash -c 'git reset && git restore -SW . && git clean -df ' "
 [color]
-	ui = auto
+ui = auto
+
+[commit]
+verbose = true
+[rerere]
+enabled = true
+autoupdate = true
+
+[rebase]
+autoSquash = true
+autoStash = true
+updateRefs = true
+
 [gpg "ssh"]
 	program = ssh-keygen
 	allowedSignersFile = 
+
