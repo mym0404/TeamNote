@@ -5,6 +5,11 @@ compression = 0
 filemode = false
 pager = delta
 
+[user]
+	name = MJ
+	email = mym0404@gmail.com
+	signingKey = 
+
 [column]
 ui = auto
 
@@ -57,11 +62,6 @@ autocorrect = prompt
 [diff]
   colorMoved = default
 
-
-[user]
-	name = Mystic
-	email = mym0404@gmail.com
-	signingKey = 
 [pack]
 	windowMemory = 100m
 	packSizeLimit = 100m
