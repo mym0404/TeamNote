@@ -3,15 +3,24 @@ git:
     colorArg: always
     pager: delta --dark --paging=never
 gui:
-  sidePanelWidth: 0.35
-  expandedSidePanelWeight: 2
+  sidePanelWidth: 0.33
+  expandedSidePanelWeight: 3
+  expandFocusedSidePanel: true
   language: en
+  timeFormat: 2006/01/02
+  shortTimeFormat: 15:04
+  showRootItemInFileTree: false
+  nerdFontsVersion: "3"
   theme:
     activeBorderColor:
       - "#89ace8"
       - bold
     optionsTextColor:
       - "#aec8f2"
+    unstagedChangesColor:
+      - "#c7b169"
+    selectedLineBgColor:
+      - "#1b2430"
 os:
   edit: 'code {{filename}}'
   editAtLine: 'code {{filename}}'
@@ -29,7 +38,7 @@ customCommands:
     # loadingText: "opening commitizen commit tool"
     # subprocess: true
   # retrieved from: https://github.com/jesseduffield/lazygit/wiki/Custom-Commands-Compendium#conventional-commit
-  - key: "Z"
+  - key: "c"
     context: "global"
     description: "Create new conventional commit"
     prompts:
@@ -94,7 +103,7 @@ customCommands:
     # command: "git commit --message '{{.Form.Type}}{{ if .Form.Scope }}({{ .Form.Scope }}){{ end }}{{.Form.Breaking}}: {{.Form.Message}}'"
     loadingText: "Creating conventional commit..."
 
-  - key: "X"
+  - key: "Z"
     context: "global"
     description: "Create new conventional commit"
     prompts:
