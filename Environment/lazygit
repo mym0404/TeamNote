@@ -10,7 +10,7 @@ gui:
   timeFormat: 2006/01/02
   shortTimeFormat: 15:04
   showRootItemInFileTree: false
-  nerdFontsVersion: "3"
+  nerdFontsVersion: ""
   theme:
     activeBorderColor:
       - "#89ace8"
@@ -39,7 +39,7 @@ customCommands:
     # subprocess: true
   # retrieved from: https://github.com/jesseduffield/lazygit/wiki/Custom-Commands-Compendium#conventional-commit
   - key: "c"
-    context: "global"
+    context: "files,global,worktrees,localBranches,remotes,remoteBranches,tags,commits,reflogCommits"
     description: "Create new conventional commit"
     prompts:
       - type: "menu"
