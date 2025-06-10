@@ -107,8 +107,8 @@ keybinding:
     nextItem: <down>
     prevItem-alt: k
     nextItem-alt: j
-    # prevPage: <left>
-    # nextPage: <right>
+    prevPage: <left>
+    nextPage: <right>
     scrollLeft: H
     scrollRight: L
     gotoTop: <
@@ -118,8 +118,8 @@ keybinding:
     toggleRangeSelect: v
     rangeSelectDown: <s-down>
     rangeSelectUp: <s-up>
-    prevBlock: <left>
-    nextBlock: <right>
+    prevBlock: <c-8>
+    nextBlock: <c-8>
     prevBlock-alt: h
     nextBlock-alt: l
     nextBlock-alt2: <tab>
@@ -130,7 +130,7 @@ keybinding:
       - "3"
       - "4"
       - "5"
-    focusMainView: "0"
+    focusMainView: "6"
     nextMatch: "n"
     prevMatch: "N"
     startSearch: /
