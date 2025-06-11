@@ -30,6 +30,9 @@ customCommands:
   - key: "G"
     context: "global"
     command: "gh repo view --web"
+  - key: "<c-r>"
+    context: "localBranches,global"
+    command: "git branch -vvv"
     
   - key: "c"
     context: "files,global,worktrees,localBranches,remotes,remoteBranches,tags,commits,reflogCommits"
@@ -105,10 +108,10 @@ keybinding:
     togglePanel: <tab>
     prevItem: <up>
     nextItem: <down>
-    prevItem-alt: k
-    nextItem-alt: j
-    prevPage: <left>
-    nextPage: <right>
+    prevItem-alt: <c-8>
+    nextItem-alt: <c-8>
+    prevPage: ','
+    nextPage: '.'
     scrollLeft: H
     scrollRight: L
     gotoTop: <
@@ -147,8 +150,8 @@ keybinding:
     openFile: o
     scrollUpMain: <pgup>
     scrollDownMain: <pgdown>
-    scrollUpMain-alt1: K
-    scrollDownMain-alt1: J
+    scrollUpMain-alt1: k
+    scrollDownMain-alt1: j
     scrollUpMain-alt2: <c-u>
     scrollDownMain-alt2: <c-d>
     executeShellCommand: ':'
@@ -171,7 +174,7 @@ keybinding:
     diffingMenu: w
     diffingMenu-alt: <c-e>
     copyToClipboard: <c-o>
-    openRecentRepos: <c-r>
+    openRecentRepos: <c-8>
     submitEditorText: <enter>
     extrasMenu: '@'
     toggleWhitespaceInDiffView: <c-w>
